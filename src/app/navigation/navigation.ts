@@ -14,11 +14,11 @@ export const navigation = [
                 'icon'     : 'dashboard',
                 'children' : [
                     {
-                        'id'   : 'analytics',
-                        'title': 'Analytics',
+                        'id'   : 'cliente',
+                        'title': 'cliente',
                         'translate': 'CONSULTAR CLIENTE',
                         'type' : 'item',
-                        'url'  : '/apps/ui/forms'
+                        'url'  : '/apps/cliente/cliente'
                     },
                     {
                         'id'   : 'project',

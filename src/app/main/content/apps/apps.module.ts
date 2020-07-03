@@ -15,8 +15,8 @@ const routes = [
         loadChildren: './dashboards/project/project.module#FuseProjectDashboardModule'
     },
     {
-        path        : 'cliente',
-        loadChildren: './cliente/forms.module#FuseClienteModule'
+        path        : 'cliente/cliente',
+        loadChildren: './cliente/cliente/cliente.module#FuseClienteModule'
     },
 
     {

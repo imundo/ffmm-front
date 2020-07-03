@@ -9,7 +9,7 @@ export const fuseConfig = {
     layout          : {
         navigation      : 'left', // 'right', 'left', 'top', 'none'
         navigationFolded: false, // true, false
-        toolbar         : 'below', // 'above', 'below', 'none'
+        toolbar         : 'none', // 'above', 'below', 'none'
         footer          : 'below', // 'above', 'below', 'none'
         mode            : 'fullwidth' // 'boxed', 'fullwidth'
     },
@@ -18,6 +18,6 @@ export const fuseConfig = {
         navbar : 'mat-fuse-dark-700-bg',
         footer : 'mat-fuse-dark-900-bg'
     },
-    customScrollbars: true,
+    customScrollbars: false,
     routerAnimation : 'fadeIn' // fadeIn, slideUp, slideDown, slideRight, slideLeft, none
 };
