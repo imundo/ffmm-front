@@ -21,6 +21,13 @@ export const navigation = [
                         'url'  : '/apps/cliente/cliente'
                     },
                     {
+                        'id'   : 'crerCliente',
+                        'title': 'crearCliente',
+                        'translate': 'CREAR CLIENTE',
+                        'type' : 'item',
+                        'url'  : '/apps/cliente/crear-cliente'
+                    },
+                    {
                         'id'   : 'project',
                         'title': 'Project',
                         'translate': 'CONSULTAR CUENTA',

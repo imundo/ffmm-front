@@ -20,6 +20,11 @@ const routes = [
     },
 
     {
+        path        : 'cliente/crear-cliente',
+        loadChildren: './cliente/crear-cliente/crear-cliente.module#CrearClienteModule'
+    },
+
+    {
         path        : 'e-commerce',
         loadChildren: './e-commerce/e-commerce.module#FuseEcommerceModule'
     }
