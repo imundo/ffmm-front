@@ -1,7 +1,9 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClienteService } from './crear-cliente.service';
+import { ClienteService } from '../../providers/cliente.service';
 import { fuseAnimations } from '@fuse/animations';
+import { Sexo } from '../../models/sexo';
+import { Nacionalidad } from '../../models/nacionalidad';
 
 @Component({
     selector     : 'fuse-analytics-dashboard',
@@ -12,6 +14,10 @@ import { fuseAnimations } from '@fuse/animations';
 })
 export class CrearClienteComponent implements OnInit
 {
+    users: any[] = [];
+    // sexos: any[] = [];
+    sexos: Sexo[] = [];
+    nacionalidades: Nacionalidad[] = [];
     form: FormGroup;
     formErrors: any;
 
@@ -31,8 +37,10 @@ export class CrearClienteComponent implements OnInit
     verticalStepperStep2Errors: any;
     verticalStepperStep3Errors: any;
 
-    constructor(private formBuilder: FormBuilder)
-    {
+    constructor(
+        private formBuilder: FormBuilder,
+        protected clienteService: ClienteService
+    ){
         // Reactive form errors
         this.formErrors = {
             company   : {},
@@ -81,6 +89,13 @@ export class CrearClienteComponent implements OnInit
 
     ngOnInit()
     {
+
+
+        this.getSexos();
+        this.getNacionalidades();
+
+
+
         // Reactive Form
         this.form = this.formBuilder.group({
             rut : ['', Validators.required],
@@ -217,5 +232,18 @@ export class CrearClienteComponent implements OnInit
     finishVerticalStepper()
     {
         alert('You have finished the vertical stepper!');
+    }
+
+
+    getSexos() {
+        this.clienteService.getSexos().subscribe((sexos: Sexo[]) => {
+          this.sexos = sexos;
+        });
+    }
+
+    getNacionalidades() {
+        this.clienteService.getNacionalidades().subscribe((nacionalidades: Nacionalidad[]) => {
+          this.nacionalidades = nacionalidades;
+        });
     }
 }

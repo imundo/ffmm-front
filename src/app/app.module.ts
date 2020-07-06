@@ -17,7 +17,7 @@ import { FuseFakeDbService } from './fuse-fake-db/fuse-fake-db.service';
 import { FuseMainModule } from './main/main.module';
 import { AppStoreModule } from './store/store.module';
 import { FfmmComponent } from './ffmm/ffmm.component';
-
+import { ClienteService } from './main/content/apps/providers/cliente.service';
 const appRoutes: Routes = [
     {
         path        : 'apps',
@@ -73,6 +73,8 @@ const appRoutes: Routes = [
         AppStoreModule,
         FuseMainModule
     ],
+
+    providers: [ClienteService],  
     bootstrap   : [
         AppComponent
     ]

@@ -74,16 +74,11 @@
                       </mat-form-field>
                 </div>
 
-
-
                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
                     <mat-form-field fxFlex="100" class="i1">
-                        <mat-select placeholder="Sexo" formControlName="sexo" required>
-                            <mat-option [value]="'Opcion1'">
-                                Opcion1
-                            </mat-option>
-                            <mat-option [value]="'Opcion2'">
-                                Opcion2
+                        <mat-select placeholder="Sexo" formControlName="sexo" required>                           
+                            <mat-option *ngFor='let sexo of sexos' [value]="'sexo.id'">
+                                {{ sexo.descripcion | uppercase }}
                             </mat-option>
                         </mat-select>
                         <mat-error *ngIf="formErrors.country.required">
@@ -92,14 +87,12 @@
                     </mat-form-field>
                                 
                     <mat-form-field fxFlex="100" class="i1">
-                        <mat-select placeholder="Nacionalidad" formControlName="nacionalidad" required>
-                            <mat-option [value]="'Opcion1'">
-                                Opcion1
-                            </mat-option>
-                            <mat-option [value]="'Opcion2'">
-                                Opcion2
-                            </mat-option>
-                        </mat-select>
+                            <mat-select placeholder="Nacionalidad" formControlName="nacionalidad" required>
+                                <mat-option *ngFor='let nacionalidad of nacionalidades' [value]="'nacionalidad.id'">
+                                    {{ nacionalidad.descripcion | uppercase }}
+                                </mat-option>
+                            </mat-select>
+
                         <mat-error *ngIf="formErrors.country.required">
                             Country is required!
                         </mat-error>
