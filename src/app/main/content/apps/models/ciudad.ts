@@ -1,4 +1,4 @@
-export interface Sexo
+export interface Ciudad
  {
     id: number;
     descripcion: string;

@@ -1,4 +1,4 @@
-export interface Sexo
+export interface NivelEducacional
  {
     id: number;
     descripcion: string;

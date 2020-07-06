@@ -1,4 +1,4 @@
-export interface Sexo
+export interface TipoDireccion
  {
     id: number;
     descripcion: string;

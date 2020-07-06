@@ -1,4 +1,4 @@
-export interface Sexo
+export interface Nacionalidad
  {
     id: number;
     descripcion: string;
