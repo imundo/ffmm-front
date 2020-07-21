@@ -30,9 +30,9 @@ export const navigation = [
                     {
                         'id'   : 'project',
                         'title': 'Project',
-                        'translate': 'CONSULTAR CUENTA',
+                        'translate': 'HABILITAR CLIENTE',
                         'type' : 'item',
-                        'url'  : '/apps/dashboards/project'
+                        'url'  : '/apps/cliente/habilitar-cliente'
                     }
                 ]
             }

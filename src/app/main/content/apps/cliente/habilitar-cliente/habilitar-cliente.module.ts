@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MatCheckboxModule,MatDatepickerModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatStepperModule } from '@angular/material';
@@ -10,20 +10,20 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
-import { CrearClienteComponent } from './crear-cliente.component';
+import { HabilitarClienteComponent } from './habilitar-cliente.component';
 // import { ClienteService } from './crear-cliente.service';
 
 
 const routes: Routes = [
     {
         path     : '**',
-        component: CrearClienteComponent
+        component: HabilitarClienteComponent
     }
 ];
 
 @NgModule({
     declarations: [
-        CrearClienteComponent
+        HabilitarClienteComponent
     ],
     imports     : [
         RouterModule.forChild(routes),
@@ -39,9 +39,12 @@ const routes: Routes = [
         MatCheckboxModule
       
       
-    ]
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
 })
-export class CrearClienteModule
+export class HabilitarClienteModule
 {
 }
 

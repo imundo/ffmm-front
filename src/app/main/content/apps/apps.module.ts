@@ -25,6 +25,11 @@ const routes = [
     },
 
     {
+        path        : 'cliente/habilitar-cliente',
+        loadChildren: './cliente/habilitar-cliente/habilitar-cliente.module#HabilitarClienteModule'
+    },
+
+    {
         path        : 'e-commerce',
         loadChildren: './e-commerce/e-commerce.module#FuseEcommerceModule'
     }
