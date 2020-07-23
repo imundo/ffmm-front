@@ -11,6 +11,7 @@ export const fuseConfig = {
         navigationFolded: false, // true, false
         toolbar         : 'none', // 'above', 'below', 'none'
         footer          : 'below', // 'above', 'below', 'none'
+        sidepanel         : 'none', // 'above', 'below', 'none'
         mode            : 'fullwidth' // 'boxed', 'fullwidth'
     },
     colorClasses    : {

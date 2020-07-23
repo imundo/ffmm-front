@@ -4,7 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FuseAngularMaterialModule } from '../components/angular-material/angular-material.module';
 
 import { FuseSharedModule } from '@fuse/shared.module';
-
+import { ClienteService } from './cliente/cliente/cliente.service';
+import { CrearClienteService } from './cliente/crear-cliente/crear-cliente.service';
 const routes = [
     {
         path        : 'dashboards/analytics',
@@ -41,6 +42,7 @@ const routes = [
         RouterModule.forChild(routes),
         FuseAngularMaterialModule
     ],
+    providers: [ClienteService,CrearClienteService],
     declarations: []
 })
 export class FuseAppsModule

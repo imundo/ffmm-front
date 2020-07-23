@@ -11,7 +11,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
 import { CrearClienteComponent } from './crear-cliente.component';
-// import { ClienteService } from './crear-cliente.service';
+ import { CrearClienteService } from './crear-cliente.service';
 
 
 const routes: Routes = [

@@ -12,7 +12,7 @@ import { Pais } from './models/pais';
 import { Cliente } from './models/cliente';
 
 @Injectable()
-export class ClienteService implements Resolve<any>
+export class CrearClienteService implements Resolve<any>
 {
     widgets: any[];
 
@@ -57,33 +57,26 @@ export class ClienteService implements Resolve<any>
                 }, reject);
         });
     }
-    getCliente(): Observable<Cliente[]> {
-      return this.http.get<Cliente[]>(this.url+'api/cliente/consultar/25847164')
-        .pipe(
-          retry(2),
-          catchError(this.handleError))
-    }
-
-    getCliente2(id: string): Observable<Cliente[]> {
-        return this.http.get<Cliente[]>(`${this.url}api/cliente/consultar/${id}`)
-          .pipe(
-            retry(2),
-            catchError(this.handleError))
-      }
     getSexos(): Observable<Sexo[]> {
-      return this.http.get<Sexo[]>(this.url+'sexo')
+      return this.http.get<Sexo[]>(`${this.url}api/cliente/`+'sexo')
         .pipe(
           retry(2),
           catchError(this.handleError))
     }
     getNacionalidades(): Observable<Nacionalidad[]> {
-      return this.http.get<Nacionalidad[]>(this.url+'nacionalidad')
+      return this.http.get<Nacionalidad[]>(`${this.url}api/cliente/`+'nacionalidad')
         .pipe(
           retry(2),
           catchError(this.handleError))
     }
     getPaises(): Observable<Pais[]> {
-      return this.http.get<Pais[]>(this.url+'pais')
+      return this.http.get<Pais[]>(`${this.url}api/cliente/`+'pais')
+        .pipe(
+          retry(2),
+          catchError(this.handleError))
+    }
+    getProfesiones(): Observable<Pais[]> {
+      return this.http.get<Pais[]>(`${this.url}api/cliente/`+'profesiones')
         .pipe(
           retry(2),
           catchError(this.handleError))

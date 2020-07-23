@@ -9,13 +9,14 @@ import { retry, catchError } from 'rxjs/operators';
 import { Sexo } from '../models/sexo';
 import { Nacionalidad } from '../models/nacionalidad';
 import { Pais } from '../models/pais';
+import { Cliente } from '../models/cliente';
 
 @Injectable()
 export class ClienteService implements Resolve<any>
 {
     widgets: any[];
 
-    url = 'http://localhost:3000/'; // api rest fake
+    url = 'http://localhost:8080/'; // api rest fake
 
     constructor(
         private http: HttpClient
@@ -54,7 +55,12 @@ export class ClienteService implements Resolve<any>
                 }, reject);
         });
     }
-
+    getCliente(): Observable<Cliente[]> {
+      return this.http.get<Cliente[]>(this.url+'api/cliente/consultar/25847164')
+        .pipe(
+          retry(2),
+          catchError(this.handleError))
+    }
     getSexos(): Observable<Sexo[]> {
       return this.http.get<Sexo[]>(this.url+'sexo')
         .pipe(
