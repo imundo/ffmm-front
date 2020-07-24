@@ -25,7 +25,7 @@
                      </div>
                      <h2>Seleccione alguna de las Alternativas:</h2>
              <!-- / SEARCH -->
-             <mat-radio-group class = "tp-radio-group" [(ngModel)] = "favoriteSeason">
+             <mat-radio-group  fxFlex="100" class = "tp-radio-group" [(ngModel)] = "favoriteSeason">
                 <mat-radio-button class = "tp-radio-button"
                    *ngFor = "let season of seasons" [value] = "season">
                    {{season}}
@@ -34,7 +34,7 @@
              <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
 
                 <button class="mat-blue-bg i1" mat-raised-button 
-                [routerLink]="'/apps/cliente/habilitar-cliente'"
+                [routerLink]="'/apps/cliente/generarAporte'"
                 >
             <span>ACEPTAR</span>
         </button>

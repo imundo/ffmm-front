@@ -1,16 +1,16 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AporteService } from './aporte.service';
+import { GenerarAporteService } from './generarAporte.service';
 import { fuseAnimations } from '@fuse/animations';
 
 @Component({
     selector     : 'fuse-analytics-dashboard',
-    templateUrl  : './aporte.component.html',
-    styleUrls    : ['./aporte.component.scss'],
+    templateUrl  : './generarAporte.component.html',
+    styleUrls    : ['./generarAporte.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
-export class FuseAporteComponent implements OnInit
+export class FuseGenerarAporteComponent implements OnInit
 {
     clientes: any[] = [];
     direcciones: any[] = [];
@@ -20,7 +20,7 @@ export class FuseAporteComponent implements OnInit
     age:number;
     found:boolean;
     favoriteSeason: string;
-    seasons: string[] = ['Ahorro Convenio Banco', 'Ahorro Convenio CMR', 'Ahorro No Sistematico', 'Portafolios'];
+    seasons: string[] = ['Tranferencia desde cuenta de otro banco', 'Aporte Efectivo', 'Aporte Documento'];
     // Horizontal Stepper
     horizontalStepperStep1: FormGroup;
     horizontalStepperStep2: FormGroup;
@@ -37,14 +37,14 @@ export class FuseAporteComponent implements OnInit
     verticalStepperStep2Errors: any;
     verticalStepperStep3Errors: any;
 
-    constructor(protected aporteService: AporteService, private formBuilder: FormBuilder)
+    constructor(protected generarAporteService: GenerarAporteService, private formBuilder: FormBuilder)
     {
       
     }
     
     getprofile(rutId){
         console.log("El Rut es"+this.rutId);
-        this.aporteService.getCliente2(this.rutId)
+        this.generarAporteService.getCliente2(this.rutId)
         .subscribe(
           (data) => { // Success
             this.clientes = data['personaNatural'];
@@ -60,7 +60,7 @@ export class FuseAporteComponent implements OnInit
     ngOnInit()
     {
         
-        this.aporteService.getCliente2(name)
+        this.generarAporteService.getCliente2(name)
         .subscribe(
           (data) => { // Success
             this.clientes = data['personaNatural'];

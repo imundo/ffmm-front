@@ -1,0 +1,132 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column" fusePerfectScrollbar>
+
+    <!-- HEADER -->
+    <div class="header mat-accent-bg p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
+     
+             <!-- APP TITLE -->
+             <div class="logo my-12 m-sm-0"
+             fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="logo-icon mr-16" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">assignment_returned</mat-icon>
+            <span class="logo-text h1" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">Generar Aporte Cliente</span>
+        </div>
+        <!-- / APP TITLE -->
+       
+    </div>
+    <div class="content p-24">
+
+        <div fxLayout="column" fxLayoutAlign="space-between center" fxLayout.gt-md="row">
+
+            <!-- REACTIVE FORM EXAMPLE -->
+
+            <div class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
+                  fxFlex="1 0 auto">
+                  <div class="accent-500-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">
+                    <h1 style="color:white;">Generar Aporte</h1>
+                     </div>
+                     <h2>Para realizar un aporte a un Fondo mutuo, seleccione la modalidad
+                        de pago donde se tranferira los fondos<br> y luego fondos mutuo hacia donde se realizara el aporte
+                        :</h2>
+             <!-- / SEARCH -->
+             
+             <mat-radio-group class = "tp-radio-group" [(ngModel)] = "favoriteSeason">
+                <mat-radio-button class = "tp-radio-button"
+                   *ngFor = "let season of seasons" [value] = "season">
+                   {{season}}
+                </mat-radio-button>
+             </mat-radio-group>
+             
+             <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+               
+           
+        
+             <mat-form-field fxFlex="100" class="i1">
+                <mat-label>Seleccione tipo de Cuenta</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="option1">Cuenta Corriente 1</mat-option>
+                  <mat-option value="option2">Cuenta Vista</mat-option>
+                  <mat-option value="option3">Cuenta Corriente 2</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              
+              <mat-form-field fxFlex="100">
+                <input matInput placeholder="Monto"  required>
+            </mat-form-field>
+            
+
+             </div>
+
+
+             <div class="accent-500-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">
+                <h1 style="color:white;">Seleccionar Fondo Mutuo</h1>
+                 </div>
+                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                 <mat-radio-group   fxFlex="100" aria-label="Select an option">
+                    <mat-radio-button value="1">Sus Fondos Disponible</mat-radio-button>
+                  </mat-radio-group>
+                  <mat-form-field fxFlex="100" class="i1">
+                    <mat-label>Seleccione</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="option1">900.002</mat-option>
+                      <mat-option value="option2">332.245</mat-option>
+                      <mat-option value="option3">45.678</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                 </div>
+                 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                    <mat-radio-group   fxFlex="100" aria-label="Select an option">
+                       <mat-radio-button value="1">Nuevos Fondos</mat-radio-button>
+                     </mat-radio-group>
+                     <mat-form-field fxFlex="100" class="i1">
+                       <mat-label>Seleccione</mat-label>
+                       <mat-select [(value)]="selected">
+                         <mat-option value="option1">1.300.444</mat-option>
+                         <mat-option value="option2">2.245</mat-option>
+                         <mat-option value="option3">2.345.678</mat-option>
+                       </mat-select>
+                     </mat-form-field>
+                    </div>
+      
+         <div class="accent-500-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">
+            <h1 style="color:white;">Digite el monte del aporte</h1>
+             </div>
+             <h3>	
+                La rentabilidad o ganancia obtenida en el pasado por este fondo, no garantiza que ella se repita en el futuro.<br> Los valores de las cuotas de los fondos mutuos son variables. Infórmese de las características esenciales de la <br>inversión en este fondo mutuo, las que se encuentran contenidas en su reglamento interno y contrato de suscripción de cuotas.<br> La gestión financiera y el riesgo de este fondo mutuo no guardan relación con la de las entidades bancarias<br> o financieras del grupo empresarial al cual pertenece, ni con la desarrollada por sus agentes colocadores.<br> 
+                </h3>
+     <!-- / SEARCH -->
+     
+     
+     <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+    
+      <mat-form-field fxFlex="100">
+        <input matInput placeholder="Ingresar el monto a aportar"  required>
+    </mat-form-field>
+
+     </div>
+             <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
+             
+                <button fxFlex="40" class="mat-green-bg" mat-raised-button 
+                [routerLink]="'/apps/cliente/habilitar-cliente'"
+                >
+            <span>ACEPTAR</span>
+        </button>
+    
+       
+            <button fxFlex="40" class="mat-red-bg " mat-raised-button 
+            [routerLink]="'/apps/cliente/habilitar-cliente'"
+            >
+        <span>CANCELAR</span>
+    </button>
+    
+
+            </div>
+    </div>
+       
+        </div>
+    </div>
+    <!-- / CONTENT -->
+
+</div>
+
+
+
