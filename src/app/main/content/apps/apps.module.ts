@@ -6,6 +6,7 @@ import { FuseAngularMaterialModule } from '../components/angular-material/angula
 import { FuseSharedModule } from '@fuse/shared.module';
 import { ClienteService } from './cliente/cliente/cliente.service';
 import { CrearClienteService } from './cliente/crear-cliente/crear-cliente.service';
+import { AporteService } from './cliente/aporte/aporte.service';
 const routes = [
     {
         path        : 'dashboards/analytics',
@@ -29,7 +30,10 @@ const routes = [
         path        : 'cliente/habilitar-cliente',
         loadChildren: './cliente/habilitar-cliente/habilitar-cliente.module#HabilitarClienteModule'
     },
-
+    {
+        path        : 'cliente/aporte',
+        loadChildren: './cliente/aporte/aporte.module#FuseAporteModule'
+    },
     {
         path        : 'e-commerce',
         loadChildren: './e-commerce/e-commerce.module#FuseEcommerceModule'
@@ -42,7 +46,7 @@ const routes = [
         RouterModule.forChild(routes),
         FuseAngularMaterialModule
     ],
-    providers: [ClienteService,CrearClienteService],
+    providers: [ClienteService,CrearClienteService,AporteService],
     declarations: []
 })
 export class FuseAppsModule

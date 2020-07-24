@@ -21,11 +21,18 @@ export const navigation = [
                         'url'  : '/apps/cliente/cliente'
                     },
                     {
-                        'id'   : 'crerCliente',
-                        'title': 'crearCliente',
-                        'translate': 'CREAR CLIENTE',
+                        'id'   : 'aporte',
+                        'title': 'aporte',
+                        'translate': 'APORTE CLIENTE',
                         'type' : 'item',
-                        'url'  : '/apps/cliente/crear-cliente'
+                        'url'  : '/apps/cliente/aporte'
+                    },
+                    {
+                        'id'   : 'rescate',
+                        'title': 'rescate',
+                        'translate': 'RESCATE CLIENTE',
+                        'type' : 'item',
+                        'url'  : '/apps/rescate/rescate'
                     },
                     {
                         'id'   : 'project',
@@ -33,6 +40,29 @@ export const navigation = [
                         'translate': 'HABILITAR CLIENTE',
                         'type' : 'item',
                         'url'  : '/apps/cliente/habilitar-cliente'
+                    }, 
+                    {
+                        'id'       : 'convenio',
+                        'title'    : 'convenio',
+                        'translate': 'CONVENIO',
+                        'type'     : 'collapse',
+                        'icon'     : 'account_balance_wallet',
+                        'children' : [
+                            {
+                                'id'   : 'convenio',
+                                'title': 'convenio',
+                                'translate': 'CARTOLA CLIENTE',
+                                'type' : 'item',
+                                'url'  : '/apps/cliente/cartola'
+                            },
+                            {
+                                'id'   : 'convenio',
+                                'title': 'convenio',
+                                'translate': 'CONSULTAR CONVENIO POR RUT',
+                                'type' : 'item',
+                                'url'  : '/apps/cliente/convenio'
+                            }
+                        ]
                     }
                 ]
             }
