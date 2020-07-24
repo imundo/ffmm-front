@@ -32,7 +32,7 @@ export const navigation = [
                         'title': 'rescate',
                         'translate': 'RESCATE CLIENTE',
                         'type' : 'item',
-                        'url'  : '/apps/rescate/rescate'
+                        'url'  : '/apps/cliente/rescate'
                     },
                     {
                         'id'   : 'project',

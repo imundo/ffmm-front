@@ -7,6 +7,7 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { ClienteService } from './cliente/cliente/cliente.service';
 import { CrearClienteService } from './cliente/crear-cliente/crear-cliente.service';
 import { AporteService } from './cliente/aporte/aporte.service';
+import { RescateService } from './cliente/rescate/rescate.service';
 const routes = [
     {
         path        : 'dashboards/analytics',
@@ -35,6 +36,10 @@ const routes = [
         loadChildren: './cliente/aporte/aporte.module#FuseAporteModule'
     },
     {
+        path        : 'cliente/rescate',
+        loadChildren: './cliente/rescate/rescate.module#FuseRescateModule'
+    },
+    {
         path        : 'e-commerce',
         loadChildren: './e-commerce/e-commerce.module#FuseEcommerceModule'
     }
@@ -46,7 +51,7 @@ const routes = [
         RouterModule.forChild(routes),
         FuseAngularMaterialModule
     ],
-    providers: [ClienteService,CrearClienteService,AporteService],
+    providers: [ClienteService,CrearClienteService,AporteService,RescateService],
     declarations: []
 })
 export class FuseAppsModule

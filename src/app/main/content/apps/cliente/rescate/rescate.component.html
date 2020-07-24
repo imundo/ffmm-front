@@ -1,0 +1,129 @@
+<div id="forms" class="page-layout simple fullwidth" fxLayout="column" fusePerfectScrollbar>
+
+    <!-- HEADER -->
+    <div class="header mat-accent-bg p-24 h-160" fxLayout="row" fxLayoutAlign="start center">
+     
+             <!-- APP TITLE -->
+             <div class="logo my-12 m-sm-0"
+             fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon class="logo-icon mr-16" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">developer_board</mat-icon>
+            <span class="logo-text h1" *fuseIfOnDom [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">Rescate Cliente </span>
+        </div>
+        <!-- / APP TITLE -->
+       
+    </div>
+    <div class="content p-24">
+
+        <div fxLayout="column" fxLayoutAlign="space-between center" fxLayout.gt-md="row">
+
+            <!-- REACTIVE FORM EXAMPLE -->
+
+            <div class="mat-white-bg mat-elevation-z4 p-24 mr-24 mb-24" fxLayout="column" fxLayoutAlign="start"
+                  fxFlex="1 0 auto">
+                  <div class="accent-500-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">
+                    <h1 style="color:white;">MECANISMO DE AHORRO</h1>
+                     </div>
+                     <h2>Seleccione alguna de las Alternativas:</h2>
+             <!-- / SEARCH -->
+             <mat-radio-group class = "tp-radio-group" [(ngModel)] = "favoriteSeason">
+                <mat-radio-button class = "tp-radio-button"
+                   *ngFor = "let season of seasons" [value] = "season">
+                   {{season}}
+                </mat-radio-button>
+             </mat-radio-group>
+             <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
+
+                <button class="mat-blue-bg i1" mat-raised-button 
+                [routerLink]="'/apps/cliente/habilitar-cliente'"
+                >
+            <span>ACEPTAR</span>
+        </button>
+            </div>
+             <!-- <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <label for="search" class="mr-8" fxFlex="10">
+                    <mat-icon class="secondary-text">search</mat-icon>
+                </label>
+                <mat-form-field floatPlaceholder="never" fxFlex="50">
+                    <input id="search"  [(ngModel)]="rutId"  matInput #filter placeholder="Ingresar RUT del Cliente">
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <label for="search" class="mr-8" fxFlex="10">
+                </label>
+                <button  (click)="getprofile()" class="mat-blue-bg" fxFlex="50" mat-raised-button>Buscar</button>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                <div class="h2 mb-24" ></div>
+            </div>
+            <div id="about" class="price-table style-1 mat-elevation-z4" fxLayout="row wrap">
+            <div class="about-content" fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxFlex.gt-md="100">
+
+                <div  *ngIf="clientes.length > 0; else elseBlock" class="profile-box info-box general" fxLayout="column">
+        
+                    <header class="mat-accent-bg">
+                        <div class="title">DATOS DE CLIENTE</div>
+                    </header>
+        
+                    <div *ngFor='let cliente of clientes' class="content">
+                        <div class="info-line">
+                            <div class="mat-green-50-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100"><span class="username">NOMBRE:</span><br>{{ cliente.nombres}}</div>
+                        </div>
+        
+                        <div class="info-line">
+                            <div class="mat-white-50-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">APELLIDO PATERNO: <br> {{ cliente.apellidopaterno}}</div>
+                            <div class="info"></div>
+                        </div>
+        
+                        <div class="info-line">
+                            <div class="mat-green-50-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">APELLIDO MATERNO: <br> {{ cliente.apellidoMaterno }}</div>
+                            <div class="info location" fxLayout="row" fxLayoutAlign="start center">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngFor='let direccion of direcciones' class="content">
+                        <div class="info-line">
+                            <div class="mat-white-50-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">DIRECCION: <br> {{ direccion.domicilio}}</div>
+                            <div class="info"></div>
+                        </div> 
+                        <div class="info-line">
+                            <div class="mat-green-50-bg mat-elevation-z4 p-12" fxFlex="0 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">AGENTE: <br> {{ direccion.idComuna}}</div>
+                            <div class="info"></div>
+                        </div>  
+                        <div class="info-line">
+                            <div class="mat-white-50-bg mat-elevation-z4 p-12" fxFlex="1 1 auto" fxFlex.gt-sm="50" fxFlex.gt-md="100">OFICINA: <br> {{ direccion.telefono}}</div>
+                            <div class="info"></div>
+                        </div>                    
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                        <div class="h2 mb-24" ></div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
+
+                        <button class="mat-green-bg i1" mat-raised-button 
+                        [routerLink]="'/apps/cliente/habilitar-cliente'"
+                        >
+                    <span>ACEPTAR</span>
+                </button>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                        <div class="h2 mb-24" ></div>
+                    </div>
+                </div>
+                <ng-template #elseBlock>
+                    <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
+                   <h2>CLIENTE NO INGRESADO O NO EXISTE</h2>
+                    </div>
+                  </ng-template>
+            </div>
+        </div> -->
+    </div>
+       
+        </div>
+    </div>
+    <!-- / CONTENT -->
+
+</div>
+
+
+
