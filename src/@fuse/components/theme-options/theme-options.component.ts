@@ -16,9 +16,9 @@ import { navigation } from 'app/navigation/navigation';
 })
 export class FuseThemeOptionsComponent implements OnInit, OnDestroy
 {
-    @ViewChild('openButton') openButton;
-    @ViewChild('panel') panel;
-    @ViewChild('overlay') overlay: ElementRef;
+    // @ViewChild('openButton') openButton;
+    // @ViewChild('panel') panel;
+    // @ViewChild('overlay') overlay: ElementRef;
 
     public player: AnimationPlayer;
     config: any;
@@ -49,28 +49,28 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
         const nav: any = navigation;
 
         nav.push({
-            'id'      : 'custom-function',
-            'title'   : 'Custom Function',
-            'type'    : 'group',
-            'children': [
-                {
-                    'id'      : 'customize',
-                    'title'   : 'Customize',
-                    'type'    : 'item',
-                    'icon'    : 'settings',
-                    'function': () => {
-                        this.openBar();
-                    }
-                }
-            ]
+            // 'id'      : 'custom-function',
+            // 'title'   : 'Custom Function',
+            // 'type'    : 'group',
+            // 'children': [
+            //     {
+            //         'id'      : 'customize',
+            //         'title'   : 'Customize',
+            //         'type'    : 'item',
+            //         'icon'    : 'settings',
+            //         'function': () => {
+            //             this.openBar();
+            //         }
+            //     }
+            // ]
         });
     }
 
     ngOnInit()
     {
-        this.renderer.listen(this.overlay.nativeElement, 'click', () => {
-            this.closeBar();
-        });
+        // this.renderer.listen(this.overlay.nativeElement, 'click', () => {
+        //     this.closeBar();
+        // });
     }
 
     ngOnDestroy()
@@ -85,31 +85,31 @@ export class FuseThemeOptionsComponent implements OnInit, OnDestroy
 
     closeBar()
     {
-        this.player =
-            this.animationBuilder
-                .build([
-                    style({transform: 'translate3d(0,0,0)'}),
-                    animate('400ms ease', style({transform: 'translate3d(100%,0,0)'}))
-                ]).create(this.panel.nativeElement);
+        // this.player =
+        //     this.animationBuilder
+        //         .build([
+        //             style({transform: 'translate3d(0,0,0)'}),
+        //             animate('400ms ease', style({transform: 'translate3d(100%,0,0)'}))
+        //         ]).create(this.panel.nativeElement);
 
-        this.player.play();
+        // this.player.play();
 
-        this.player.onDone(() => {
-            this.barClosed = true;
-        });
+        // this.player.onDone(() => {
+        //     this.barClosed = true;
+        // });
     }
 
     openBar()
     {
-        this.barClosed = false;
+        // this.barClosed = false;
 
-        this.player =
-            this.animationBuilder
-                .build([
-                    style({transform: 'translate3d(100%,0,0)'}),
-                    animate('400ms ease', style({transform: 'translate3d(0,0,0)'}))
-                ]).create(this.panel.nativeElement);
+        // this.player =
+        //     this.animationBuilder
+        //         .build([
+        //             style({transform: 'translate3d(100%,0,0)'}),
+        //             animate('400ms ease', style({transform: 'translate3d(0,0,0)'}))
+        //         ]).create(this.panel.nativeElement);
 
-        this.player.play();
+        // this.player.play();
     }
 }

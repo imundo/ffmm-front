@@ -2,6 +2,8 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenerarAporteService } from './generarAporte.service';
 import { fuseAnimations } from '@fuse/animations';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from 'assets/angular-material-examples/dialog-overview/dialog-overview-example';
 
 @Component({
     selector     : 'fuse-analytics-dashboard',
@@ -20,7 +22,9 @@ export class FuseGenerarAporteComponent implements OnInit
     age:number;
     found:boolean;
     favoriteSeason: string;
-    seasons: string[] = ['Tranferencia desde cuenta de otro banco', 'Aporte Efectivo', 'Aporte Documento'];
+    animal: string;
+    name: string;
+    seasons: string[] = ['Tranferencia desde cuenta banco', 'Aporte Efectivo', 'Aporte Documento'];
     // Horizontal Stepper
     horizontalStepperStep1: FormGroup;
     horizontalStepperStep2: FormGroup;
@@ -37,11 +41,24 @@ export class FuseGenerarAporteComponent implements OnInit
     verticalStepperStep2Errors: any;
     verticalStepperStep3Errors: any;
 
-    constructor(protected generarAporteService: GenerarAporteService, private formBuilder: FormBuilder)
+    constructor(protected generarAporteService: GenerarAporteService, private formBuilder: FormBuilder,public dialog: MatDialog)
     {
       
     }
-    
+    openDialog(): void {
+      const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+        width: '350px',
+        data: {name: this.name, animal: this.animal}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.animal = result;
+      });
+    }
+  
+  
+  
     getprofile(rutId){
         console.log("El Rut es"+this.rutId);
         this.generarAporteService.getCliente2(this.rutId)

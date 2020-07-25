@@ -6,7 +6,8 @@
  * about changing these options per component basis.
  */
 export const fuseConfig = {
-    colorTheme      : 'green-600-bg',
+    colorTheme      : 'light-green',
+    customScrollbars: false,
     layout          : {
         navigation      : 'left', // 'right', 'left', 'top', 'none'
         navigationFolded: false, // true, false
@@ -20,6 +21,5 @@ export const fuseConfig = {
         navbar : 'mat-fuse-dark-700-bg',
         footer : 'mat-fuse-dark-900-bg'
     },
-    customScrollbars: false,
     routerAnimation : 'fadeIn' // fadeIn, slideUp, slideDown, slideRight, slideLeft, none
 };
