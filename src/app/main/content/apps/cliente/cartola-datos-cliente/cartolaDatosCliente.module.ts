@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MatCheckboxModule,MatDatepickerModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatStepperModule } from '@angular/material';
+import {
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatSelectModule,
+  MatStepperModule,
+  MatGridListModule
+} from '@angular/material';
 
 import { AgmCoreModule } from '@agm/core';
 import { ChartsModule } from 'ng2-charts';
@@ -24,20 +34,21 @@ const routes: Routes = [
     declarations: [
         FuseCartolaDatosClienteComponent
     ],
-    imports     : [
-        RouterModule.forChild(routes),
+  imports: [
+    RouterModule.forChild(routes),
 
-        MatButtonModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatSelectModule,
-        MatStepperModule,
-        MatDatepickerModule,
-        FuseSharedModule,
-        MatCheckboxModule,
-        MatRadioModule
-    ],
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    FuseSharedModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatGridListModule
+  ],
 })
 export class FuseCartolaDatosClienteModule
 {

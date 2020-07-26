@@ -20,29 +20,24 @@
         <h2>
           Ahorros e Inversiones Fondos Mutuos Cartola
         </h2>
-        <h3>Fondo:</h3>
         <mat-form-field appearance="fill">
-          <mat-label>Seleccione un Fondo</mat-label>
-          <mat-select [(ngModel)]="selectedFondo" name="tiposFondos">
-            <mat-option *ngFor="let tipoFondo of tiposFondos" [value]="tipoFondo.value">
-              {{tipoFondo.viewValue}}
-            </mat-option>
-          </mat-select>
+          <mat-grid-list cols="4" rowHeight="50px">
+            <mat-grid-tile
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [style.background]="tile.color"
+            >
+              {{tile.text}}
+            </mat-grid-tile>
+          </mat-grid-list>
         </mat-form-field>
-        <h3>Desde:</h3>
-        <mat-form-field appearance="fill">
-          <mat-label>Seleccione una fecha</mat-label>
-          <input matInput [matDatepickerFilter]="datepickerFilter" [matDatepicker]="fechaDesde">
-          <mat-datepicker-toggle matSuffix [for]="fechaDesde"></mat-datepicker-toggle>
-          <mat-datepicker #fechaDesde></mat-datepicker>
-        </mat-form-field>
-        <h3>Hasta:</h3>
-        <mat-form-field appearance="fill">
-          <mat-label>Seleccione una fecha</mat-label>
-          <input matInput [matDatepickerFilter]="datepickerFilter" [matDatepicker]="fechaHasta">
-          <mat-datepicker-toggle matSuffix [for]="fechaHasta"></mat-datepicker-toggle>
-          <mat-datepicker #fechaHasta></mat-datepicker>
-        </mat-form-field>
+        <h3>
+          Antecedentes sujetos a confirmación. Infórmese sobre la garantía estatal de los depósitos en su banco o en www.sbif.cl.<br/>
+          La rentabilidad o ganancia obtenida en el pasado por este fondo, no garantiza que ella se repita en el futuro.<br/>
+          Los valores de las cuotas de los fondos mutuos son variables.<br/>
+          Infórmese de las características esenciales de la inversión en este fondo mutuo, las que se encuentran contenidas en su reglamento interno y contrato de suscripción de cuotas.<br/>
+          La gestión financiera y el riesgo de este fondo mutuo no guardan relación con la de las entidades bancarias o financieras del grupo empresarial al cual pertenece, ni con la desarrollada por sus agentes colocadores.
+        </h3>
         <div fxLayout="row" fxLayoutAlign="center center" fxFlex="1 1 auto">
           <button
             class="mat-blue-bg i1"

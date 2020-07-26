@@ -9,6 +9,7 @@ import { CrearClienteService } from './cliente/crear-cliente/crear-cliente.servi
 import { AporteService } from './cliente/aporte/aporte.service';
 import { RescateService } from './cliente/rescate/rescate.service';
 import { CartolaService } from './cliente/cartola/cartola.service';
+import { CartolaDatosClienteService } from './cliente/cartola-datos-cliente/cartolaDatosCliente.service';
 import { GenerarAporteService } from './cliente/generarAporte/generarAporte.service';
 
 const routes = [
@@ -66,7 +67,7 @@ const routes = [
         RouterModule.forChild(routes),
         FuseAngularMaterialModule
     ],
-    providers: [ClienteService,CrearClienteService,AporteService,RescateService,GenerarAporteService, CartolaService],
+    providers: [ClienteService,CrearClienteService,AporteService,RescateService,GenerarAporteService, CartolaService,CartolaDatosClienteService],
     declarations: []
 })
 export class FuseAppsModule

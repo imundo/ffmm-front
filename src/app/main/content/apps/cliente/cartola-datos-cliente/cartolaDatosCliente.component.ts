@@ -4,9 +4,10 @@ import { CartolaDatosClienteService } from './cartolaDatosCliente.service';
 import { fuseAnimations } from '@fuse/animations';
 
 // tslint:disable-next-line:class-name
-interface tipoFondo {
-  value: string;
-  viewValue: string;
+export interface Tile {
+  color: string;
+  cols: number;
+  text: string;
 }
 
 @Component({
@@ -18,35 +19,20 @@ interface tipoFondo {
 })
 export class FuseCartolaDatosClienteComponent implements OnInit
 {
-  tiposFondos: tipoFondo[] = [
-    {
-      value: 'opc1',
-      viewValue: 'Opción 1'
-    },
-    {
-      value: 'opc2',
-      viewValue: 'Opción 2'
-    },
-    {
-      value: 'opc3',
-      viewValue: 'Opción 3'
-    },
-    {
-      value: 'opc4',
-      viewValue: 'Opción 4'
-    },
-    {
-      value: 'opc5',
-      viewValue: 'Opción 5'
-    },
+  tiles: Tile[] = [
+    {text: 'Cliente', cols: 1, color: '#6BB06E'},
+    {text: 'xxxxxxxxxx', cols: 3, color: 'white'},
+    {text: 'Oficina', cols: 1, color: '#6BB06E'},
+    {text: 'xxxxxxxxxx', cols: 3, color: 'white'},
+    {text: 'Agente', cols: 1, color: '#6BB06E'},
+    {text: 'xxxxxxxxxx', cols: 3, color: 'white'},
+    {text: 'Fecha Desde', cols: 1, color: '#6BB06E'},
+    {text: 'xxxxxxxxxx', cols: 3, color: 'white'},
+    {text: 'Fecha Hasta', cols: 1, color: '#6BB06E'},
+    {text: 'xxxxxxxxxx', cols: 3, color: 'white'},
   ];
-  selectedFondo: string;
 
-  datepickerFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }
+  currentTime: any = new Date();
 
   constructor(protected cartolaDatosClienteService: CartolaDatosClienteService, private formBuilder: FormBuilder)
   {
