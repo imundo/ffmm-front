@@ -35,12 +35,19 @@ export const navigation = [
                         'url'  : '/apps/cliente/rescate'
                     },
                     {
+                        'id'   : 'cartola',
+                        'title': 'cartola',
+                        'translate': 'CARTOLA CLIENTE',
+                        'type' : 'item',
+                        'url'  : '/apps/cliente/cartola'
+                    },
+                    {
                         'id'   : 'project',
                         'title': 'Project',
                         'translate': 'HABILITAR CLIENTE',
                         'type' : 'item',
                         'url'  : '/apps/cliente/habilitar-cliente'
-                    }, 
+                    },
                     {
                         'id'       : 'convenio',
                         'title'    : 'convenio',
