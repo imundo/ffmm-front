@@ -30,6 +30,11 @@ const routes = [
         path        : 'cliente/habilitar-cliente',
         loadChildren: './cliente/habilitar-cliente/habilitar-cliente.module#HabilitarClienteModule'
     },
+
+    {
+        path        : 'cliente/convenio/consulta-convenio-por-rut',
+        loadChildren: './cliente/convenio/consulta-convenio-por-rut/consulta-convenio-por-rut.module#ConsultaConvenioPorRutModule'
+    },
     {
         path        : 'cliente/aporte',
         loadChildren: './cliente/aporte/aporte.module#FuseAporteModule'

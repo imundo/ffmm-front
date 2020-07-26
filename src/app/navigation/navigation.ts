@@ -60,7 +60,7 @@ export const navigation = [
                                 'title': 'convenio',
                                 'translate': 'CONSULTAR CONVENIO POR RUT',
                                 'type' : 'item',
-                                'url'  : '/apps/cliente/convenio'
+                                'url'  : '/apps/cliente/convenio/consulta-convenio-por-rut'
                             }
                         ]
                     }
