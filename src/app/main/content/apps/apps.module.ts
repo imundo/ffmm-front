@@ -7,6 +7,11 @@ import { FuseSharedModule } from '@fuse/shared.module';
 import { ClienteService } from './cliente/cliente/cliente.service';
 import { CrearClienteService } from './cliente/crear-cliente/crear-cliente.service';
 import { AporteService } from './cliente/aporte/aporte.service';
+import { RescateService } from './cliente/rescate/rescate.service';
+import { CartolaService } from './cliente/cartola/cartola.service';
+import { CartolaDatosClienteService } from './cliente/cartola-datos-cliente/cartolaDatosCliente.service';
+import { GenerarAporteService } from './cliente/generarAporte/generarAporte.service';
+
 const routes = [
     {
         path        : 'dashboards/analytics',
@@ -40,6 +45,22 @@ const routes = [
         loadChildren: './cliente/aporte/aporte.module#FuseAporteModule'
     },
     {
+        path        : 'cliente/generarAporte',
+        loadChildren: './cliente/generarAporte/generarAporte.module#FuseGenerarAporteModule'
+    },
+    {
+        path        : 'cliente/rescate',
+        loadChildren: './cliente/rescate/rescate.module#FuseRescateModule'
+    },
+    {
+        path        : 'cliente/cartola',
+        loadChildren: './cliente/cartola/cartola.module#FuseCartolaModule'
+    },
+    {
+        path        : 'cliente/cartola-datos-cliente',
+        loadChildren: './cliente/cartola-datos-cliente/cartolaDatosCliente.module#FuseCartolaDatosClienteModule'
+    },
+    {
         path        : 'e-commerce',
         loadChildren: './e-commerce/e-commerce.module#FuseEcommerceModule'
     }
@@ -51,7 +72,7 @@ const routes = [
         RouterModule.forChild(routes),
         FuseAngularMaterialModule
     ],
-    providers: [ClienteService,CrearClienteService,AporteService],
+    providers: [ClienteService,CrearClienteService,AporteService,RescateService,GenerarAporteService, CartolaService,CartolaDatosClienteService],
     declarations: []
 })
 export class FuseAppsModule

@@ -32,7 +32,14 @@ export const navigation = [
                         'title': 'rescate',
                         'translate': 'RESCATE CLIENTE',
                         'type' : 'item',
-                        'url'  : '/apps/rescate/rescate'
+                        'url'  : '/apps/cliente/rescate'
+                    },
+                    {
+                        'id'   : 'cartola',
+                        'title': 'cartola',
+                        'translate': 'CARTOLA CLIENTE',
+                        'type' : 'item',
+                        'url'  : '/apps/cliente/cartola'
                     },
                     {
                         'id'   : 'project',
@@ -40,7 +47,7 @@ export const navigation = [
                         'translate': 'HABILITAR CLIENTE',
                         'type' : 'item',
                         'url'  : '/apps/cliente/habilitar-cliente'
-                    }, 
+                    },
                     {
                         'id'       : 'convenio',
                         'title'    : 'convenio',

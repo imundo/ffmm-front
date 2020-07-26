@@ -27,31 +27,31 @@ export class FusePerfectScrollbarDirective implements OnInit, AfterViewInit, OnD
 
     ngOnInit()
     {
-        this.onConfigChanged =
-            this.fuseConfig.onConfigChanged.subscribe(
-                (settings) => {
-                    this.isDisableCustomScrollbars = !settings.customScrollbars;
-                }
-            );
+        // this.onConfigChanged =
+        //     this.fuseConfig.onConfigChanged.subscribe(
+        //         (settings) => {
+        //             this.isDisableCustomScrollbars = !settings.customScrollbars;
+        //         }
+        //     );
 
-        if ( this.platform.ANDROID || this.platform.IOS )
-        {
-            this.isMobile = true;
-        }
+        // if ( this.platform.ANDROID || this.platform.IOS )
+        // {
+        //     this.isMobile = true;
+        // }
     }
 
     ngAfterViewInit()
     {
-        if ( this.isMobile || this.isDisableCustomScrollbars )
-        {
-            this.isInitialized = false;
-            return;
-        }
+        // if ( this.isMobile || this.isDisableCustomScrollbars )
+        // {
+        //     this.isInitialized = false;
+        //     return;
+        // }
 
-        // Initialize the perfect-scrollbar
-        this.ps = new PerfectScrollbar(this.element.nativeElement, {
-            wheelPropagation: true
-        });
+        // // Initialize the perfect-scrollbar
+        // this.ps = new PerfectScrollbar(this.element.nativeElement, {
+        //     wheelPropagation: true
+        // });
     }
 
     ngOnDestroy()
