@@ -7,7 +7,7 @@ import { MatCheckboxModule,MatDatepickerModule, MatButtonModule, MatFormFieldMod
 import { AgmCoreModule } from '@agm/core';
 import { ChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import {MatRadioModule} from '@angular/material'
+import {MatRadioModule} from '@angular/material';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseWidgetModule } from '@fuse/components/widget/widget.module';
 import { FuseRescateComponent } from './rescate.component';
@@ -38,9 +38,7 @@ const routes: Routes = [
         FuseSharedModule,
         MatCheckboxModule,
         MatRadioModule
-      
-      
-    ]
+    ],
 })
 export class FuseRescateModule
 {
