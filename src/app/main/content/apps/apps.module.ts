@@ -35,10 +35,13 @@ const routes = [
         path        : 'cliente/habilitar-cliente',
         loadChildren: './cliente/habilitar-cliente/habilitar-cliente.module#HabilitarClienteModule'
     },
-
     {
         path        : 'cliente/convenio/consulta-convenio-por-rut',
         loadChildren: './cliente/convenio/consulta-convenio-por-rut/consulta-convenio-por-rut.module#ConsultaConvenioPorRutModule'
+    },
+    {
+        path        : 'cliente/consulta/saldo',
+        loadChildren: './cliente/consulta/saldo/saldo.module#SaldoModule'
     },
     {
         path        : 'cliente/aporte',

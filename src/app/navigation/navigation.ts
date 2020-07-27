@@ -21,6 +21,13 @@ export const navigation = [
                         'url'  : '/apps/cliente/cliente'
                     },
                     {
+                        'id'   : 'project',
+                        'title': 'Project',
+                        'translate': 'HABILITAR CLIENTE',
+                        'type' : 'item',
+                        'url'  : '/apps/cliente/habilitar-cliente'
+                    },
+                    {
                         'id'   : 'aporte',
                         'title': 'aporte',
                         'translate': 'APORTE CLIENTE',
@@ -33,20 +40,6 @@ export const navigation = [
                         'translate': 'RESCATE CLIENTE',
                         'type' : 'item',
                         'url'  : '/apps/cliente/rescate'
-                    },
-                    {
-                        'id'   : 'cartola',
-                        'title': 'cartola',
-                        'translate': 'CARTOLA CLIENTE',
-                        'type' : 'item',
-                        'url'  : '/apps/cliente/cartola'
-                    },
-                    {
-                        'id'   : 'project',
-                        'title': 'Project',
-                        'translate': 'HABILITAR CLIENTE',
-                        'type' : 'item',
-                        'url'  : '/apps/cliente/habilitar-cliente'
                     },
                     {
                         'id'       : 'convenio',
@@ -70,7 +63,51 @@ export const navigation = [
                                 'url'  : '/apps/cliente/convenio/consulta-convenio-por-rut'
                             }
                         ]
-                    }
+                    },
+                    {
+                        'id'   : 'cartola',
+                        'title': 'cartola',
+                        'translate': 'CARTOLA CLIENTE',
+                        'type' : 'item',
+                        'url'  : '/apps/cliente/cartola'
+                    },
+                    {
+                        'id'       : 'consulta',
+                        'title'    : 'consulta',
+                        'translate': 'CONSULTA',
+                        'type'     : 'collapse',
+                        'icon'     : 'account_balance_wallet',
+                        'children' : [
+                            {
+                                'id'   : 'saldo',
+                                'title': 'saldo',
+                                'translate': 'SALDO',
+                                'type' : 'item',
+                                'url'  : '/apps/cliente/consulta/saldo'
+                            },
+                            {
+                                'id'   : 'informeCuadratura',
+                                'title': 'informeCuadratura',
+                                'translate': 'INFORME CUADRATURA',
+                                'type' : 'item',
+                                'url'  : '/apps/cliente/consulta/informe-cuadratura'
+                            },
+                            {
+                                'id'   : 'opEnTransito',
+                                'title': 'opEnTransito',
+                                'translate': 'OP. EN TRANSITO',
+                                'type' : 'item',
+                                'url'  : '/apps/cliente/consulta/operaciones-en-transito'
+                            },
+                            {
+                                'id'   : 'valoresCuota',
+                                'title': 'valoresCuota',
+                                'translate': 'VALORES CUOTA',
+                                'type' : 'item',
+                                'url'  : '/apps/cliente/consulta/valores-cuota'
+                            }
+                        ]
+                    },
                 ]
             }
         ]
