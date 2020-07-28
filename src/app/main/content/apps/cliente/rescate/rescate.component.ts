@@ -3,95 +3,60 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RescateService } from './rescate.service';
 import { fuseAnimations } from '@fuse/animations';
 
-interface tipoMedioPago {
-  value: string;
-  viewValue: string;
-}
-
+// tslint:disable-next-line:class-name
 interface tipoHerramPago {
   value: string;
-  viewValue: string;
+  name: string;
 }
 
+// tslint:disable-next-line:class-name
 interface tipoRescate {
   value: string;
   viewValue: string;
 }
 
 @Component({
-  selector     : 'rescate-component',
+  selector     : 'fuse-rescate-component',
   templateUrl  : './rescate.component.html',
   styleUrls    : ['./rescate.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations   : fuseAnimations
 })
-export class FuseRescateComponent implements OnInit
-{
-  clientes: any[] = [];
-  direcciones: any[] = [];
-  form: FormGroup;
-  formErrors: any;
-  rutId:string;
-  age:number;
-  found:boolean;
-  // Horizontal Stepper
-  horizontalStepperStep1: FormGroup;
-  horizontalStepperStep2: FormGroup;
-  horizontalStepperStep3: FormGroup;
-  horizontalStepperStep1Errors: any;
-  horizontalStepperStep2Errors: any;
-  horizontalStepperStep3Errors: any;
+export class FuseRescateComponent implements OnInit{
 
-  // Vertical Stepper
-  verticalStepperStep1: FormGroup;
-  verticalStepperStep2: FormGroup;
-  verticalStepperStep3: FormGroup;
-  verticalStepperStep1Errors: any;
-  verticalStepperStep2Errors: any;
-  verticalStepperStep3Errors: any;
+  tiposHerramPago: tipoHerramPago[];
+  selectedHerramPago: tipoHerramPago;
+  opcion_herram_pago = 'Seleccione Opción de Medio de Pago';
 
-  datepickerFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }
-
-  tipoMedioPago: tipoMedioPago[] = [
+  tipoMedioPago: any = [
     {
-      value: 'cuenta',
-      viewValue: 'Cuenta Corriente o Vista'
+      'valueHerramPago': 'cuenta',
+      'nameHerramPago': 'Cuenta Corriente o Vista',
+      'label': 'Seleccione Opción para Cuenta Corriente o Vista',
+      tiposHerramPago: [
+        {
+          'value': 'corriente',
+          'name': 'Cuenta Corriente',
+        },
+        {
+          'value': 'vista',
+          'name': 'Cuenta Vista',
+        },
+      ]
     },
     {
-      value: 'caja',
-      viewValue: 'Retiro por Caja'
+      'valueHerramPago': 'caja',
+      'nameHerramPago': 'Retiro por Caja',
+      'label': 'Seleccione Opción Retiro por Caja',
+      tiposHerramPago: [
+        {
+          'value': 'vale',
+          'name': 'Nómina de Vale Vista',
+        },
+      ]
     },
   ];
-  selectedMedioPago: string;
-
-  /*
-  tipoHerramPago: tipoHerramPago[] = [
-    {
-      value: 'cuenta',
-      viewValue: 'Cuenta Corriente o Vista'
-    },
-    {
-      value: 'caja',
-      viewValue: 'Retiro por Caja'
-    },
-  ];
-  selectedHerramPago: string;
-   */
-  tipoHerramPago: tipoHerramPago[] = [
-    {
-      value: 'cuenta',
-      viewValue: 'Cuenta Corriente o Vista'
-    },
-    {
-      value: 'caja',
-      viewValue: 'Retiro por Caja'
-    },
-  ];
-  selectedHerramPago: string;
+  selectedMedioPago: any;
 
   tiposRescate: tipoRescate[] = [
     {
@@ -105,45 +70,28 @@ export class FuseRescateComponent implements OnInit
   ];
   selectedRescate: any;
 
-  constructor(protected rescateService: RescateService, private formBuilder: FormBuilder)
-  {
-
-  }
-  getprofile(rutId){
-    console.log("El Rut es"+this.rutId);
-    this.rescateService.getCliente2(this.rutId)
-      .subscribe(
-        (data) => { // Success
-          this.clientes = data['personaNatural'];
-          this.direcciones = data['direccion']
-          console.log(data);
-          console.log(data.length);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-  }
-  ngOnInit()
-  {
-
-    this.rescateService.getCliente2(name)
-      .subscribe(
-        (data) => { // Success
-          this.clientes = data['personaNatural'];
-          this.direcciones = data['direccion']
-          console.log(data);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-
-
-
+  datepickerFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
   }
 
+  constructor(protected rescateService: RescateService, private formBuilder: FormBuilder){
+  }
 
+  ngOnInit(){
+  }
+
+  medioPagoChangeAction(valueTipoHerramPago){
+    const dropDownData = this.tipoMedioPago.find((data: any) => data.valueHerramPago === valueTipoHerramPago);
+    if (dropDownData && dropDownData.tiposHerramPago) {
+      this.opcion_herram_pago = dropDownData.label;
+      this.tiposHerramPago = dropDownData.tiposHerramPago;
+    } else {
+      // this.opcion_herram_pago = 'Seleccione Opción de Medio de Pago';
+      this.tiposHerramPago = [];
+    }
+  }
 
 
 }
